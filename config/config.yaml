@@ -44,6 +44,8 @@ targets:
     h = target['Hemisphere'].lower()
     props = {k: ny.load(nsd_path.subpath('freesurfer', sid, 'label', h + '.' + filename))
              for (k,filename) in nsd_prf_files.items()}
+    ang = props['polar_angle']
+    props['polar_angle'] = np.mod(90 - ang + 180, 360) - 180
     cortex = sub.hemis[h]
     return cortex.with_prop(props)
   flatmap: |
