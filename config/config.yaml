@@ -41,7 +41,7 @@ targets:
   cortex: |
     sub = target['subject']
     h = target['Hemisphere'].lower()
-    props = {k: sub.load('label', filename)
+    props = {k: sub.load('label', h + '.' + filename)
              for (k,filename) in nsd_prf_files.items()}
     cortex = sub.hemis[h]
     return cortex.with_prop(props)
