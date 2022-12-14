@@ -14,7 +14,7 @@ display:
 init: |
   import neuropythy as ny
   import numpy as np
-
+  
   nsd_path = ny.util.pseudo_path('s3://natural-scenes-dataset/nsddata/',
                                  cache_path='/cache/nsd')
   nsd_prf_files = {"polar_angle": "prfangle.mgz",
